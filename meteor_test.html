@@ -1,0 +1,46 @@
+<head>
+  <title>12 Spokes' Radar</title>
+  <script src="/js/vendor/rickshaw/vendor/d3.min.js"></script>
+  <script src="/js/vendor/rickshaw//vendor/d3.layout.min.js"></script>
+  <script src="/js/vendor/rickshaw/rickshaw.min.js"></script>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      {{> projects }}
+      {{> project }}
+    </div>
+  </div>
+</body>
+
+<template name="projects">
+  <div class="span3">
+    <div class="well sidebar-nav">
+      <ul class="nav nav-list">
+        <li class="nav-header">Projects</li>
+        {{#each projects}}
+          {{> project_item }}
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</template>
+
+<template name="project_item">
+  <li><a href="#">{{ name }}</a></li>
+</template>
+
+<template name="project">
+  {{#if show}}
+    {{#with project}}
+      <div class="span9">
+        <div class="well">
+          <h2>Project {{ name }}</h2>
+          <p>{{ hours }} hours</p>
+          <div id="chart"></div>
+        </div>
+      </div>
+    {{/with}}
+  {{/if}}
+</template>
